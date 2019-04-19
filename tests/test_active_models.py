@@ -9,6 +9,7 @@ class ActiveModelsTest(TestCase):
         self.expected_candidate = expected_candidate
         self.expected_status = expected_status
 
+    @classmethod
     def setUpClass(cls) -> None:
         cls.candidate_options = {'small', 'repeated', 'multi'}
         cls.active_set_options = {'empty', 'collision'}
