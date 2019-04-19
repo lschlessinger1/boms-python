@@ -15,10 +15,6 @@ class HellingerDistanceBuilder(DistanceBuilder):
         super().__init__(noise_prior, num_samples, max_num_hyperparameters, max_num_kernels, active_models,
                          initial_model_indices, data_X)
 
-    @staticmethod
-    def hellinger_distance(data_i, data_j):
-        pass
-
     def compute_distance(self,
                          active_models: ActiveModels,
                          indices_i,
@@ -28,6 +24,10 @@ class HellingerDistanceBuilder(DistanceBuilder):
     def create_precomputed_info(self, covariance, data_X):
         pass
 
-    @staticmethod
-    def fix_numerical_problem(k):
-        pass
+
+def hellinger_distance(data_i, data_j):
+    pass
+
+
+def fix_numerical_problem(k):
+    pass
