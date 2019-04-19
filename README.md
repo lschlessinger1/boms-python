@@ -1,4 +1,4 @@
-# boms-python
+# BOMS-python
 <cite>Bayesian optimization for automated model selection (BOMS) implementation in Python.
 
 
