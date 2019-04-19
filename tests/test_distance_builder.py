@@ -3,22 +3,21 @@ from unittest import TestCase
 
 class DistanceBuilderTest(TestCase):
 
-    def __init__(self):
+    def __init__(self, active_models, candidates, model_space, noise_prior, initial_model_indices, data_X):
         super().__init__()
-        self.active_models = None
-        self.candidates = None
-        self.model_space = None
-        self.noise_prior = None
-        self.initial_model_indices = None
-        self.data_X = None
-        self.max_num_kernels = 20
-        self.max_num_hyperparameters = 10
-        self.num_samples = 10
-        self.num_dimensions = 1
+        self.active_models = active_models
+        self.candidates = candidates
+        self.model_space = model_space
+        self.noise_prior = noise_prior
+        self.initial_model_indices = initial_model_indices
+        self.data_X = data_X
 
     @classmethod
     def setUpClass(cls) -> None:
-        pass
+        cls.max_num_kernels = 20
+        cls.max_num_hyperparameters = 10
+        cls.num_samples = 10
+        cls.num_dimensions = 1
 
     def update_test(self, builder):
         pass

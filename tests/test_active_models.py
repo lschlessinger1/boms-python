@@ -3,13 +3,15 @@ from unittest import TestCase
 
 class ActiveModelsTest(TestCase):
 
-    def __init__(self):
+    def __init__(self, candidates, expected_candidate, expected_status):
         super().__init__()
-        self.candidates = None
-        self.expected_candidate = None
-        self.expected_status = None
-        self.candidate_options = {'small', 'repeated', 'multi'}
-        self.active_set_options = {'empty', 'collision'}
+        self.candidates = candidates
+        self.expected_candidate = expected_candidate
+        self.expected_status = expected_status
+
+    def setUpClass(cls) -> None:
+        cls.candidate_options = {'small', 'repeated', 'multi'}
+        cls.active_set_options = {'empty', 'collision'}
 
     def setUp(self) -> None:
         pass

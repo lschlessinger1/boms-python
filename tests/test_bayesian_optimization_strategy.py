@@ -3,10 +3,13 @@ from unittest import TestCase
 
 class BayesianOptimizationStrategyTest(TestCase):
 
-    def __init__(self):
+    def __init__(self, problems):
         super().__init__()
-        self.problems = None
-        self.options = {'small_oneD', 'larger_oneD', 'small_multiD', 'larger_multiD'}
+        self.problems = problems
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.options = {'small_oneD', 'larger_oneD', 'small_multiD', 'larger_multiD'}
 
     def setUp(self) -> None:
         pass
