@@ -26,7 +26,7 @@ class FrobeniousDistanceBuilder(DistanceBuilder):
 
 
 def frobenious_distance(a, b, num_points: int):
-    """Average squared frobenious distance between A vs B.
+    """Average squared Frobenius distance between A vs B.
 
     :param a:
     :param b:
