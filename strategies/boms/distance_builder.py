@@ -35,3 +35,6 @@ class DistanceBuilder:
 
     def create_precomputed_info(self, covariance, data_X):
         raise NotImplementedError
+
+    def get_kernel(self, index: int):
+        pass

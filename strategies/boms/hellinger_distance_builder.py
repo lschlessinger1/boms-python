@@ -27,3 +27,7 @@ class HellingerDistanceBuilder(DistanceBuilder):
 
     def create_precomputed_info(self, covariance, data_X):
         pass
+
+    @staticmethod
+    def fix_numerical_problem(k):
+        pass
