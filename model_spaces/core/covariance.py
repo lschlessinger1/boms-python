@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Callable
 
 from model_spaces.core.hyperpriors import Hyperpriors
 
@@ -8,12 +8,17 @@ class Covariance:
     rnd_code_maximum_length = 16
     rnd_code_truncation = 1e6
 
-    def __init__(self, name, is_base, rnd_code, function_handle, priors):
-        self.name = name
-        self.is_base = is_base
-        self.rnd_code = rnd_code
-        self.function_handle = function_handle
-        self.priors = priors
+    def __init__(self,
+                 name: str,
+                 is_base: bool,
+                 rnd_code,
+                 function_handle: Callable,
+                 priors):
+        self.name = name  # string to represent the model
+        self.is_base = is_base  # boolean to define if it is a base covariance
+        self.rnd_code = rnd_code  # random numbers to figure out if two models are the same
+        self.function_handle = function_handle  # covariance function handle
+        self.priors = priors  # covariance prior function handle
 
     @classmethod
     def mask(cls, o1, dimension: int):
