@@ -3,6 +3,7 @@ from strategies.boms.distance_builder import DistanceBuilder
 
 
 class HellingerDistanceBuilder(DistanceBuilder):
+    """HellingerDistanceBuilder builds distances based on the Hellinger distance between the model's Gram matrices."""
 
     def __init__(self,
                  noise_prior,
@@ -26,6 +27,14 @@ class HellingerDistanceBuilder(DistanceBuilder):
 
 
 def hellinger_distance(data_i, data_j):
+    """Squared Hellinger distance for two multivariate Gaussian distributions with means zero.
+
+    https://en.wikipedia.org/wiki/Hellinger_distance
+
+    :param data_i:
+    :param data_j:
+    :return:
+    """
     pass
 
 

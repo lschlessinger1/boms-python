@@ -3,7 +3,7 @@ from strategies.boms.distance_builder import DistanceBuilder
 
 
 class FrobeniousDistanceBuilder(DistanceBuilder):
-
+    """FrobeniousDistanceBuilder builds distances based on the Frobenious norm between the model's Gram matrices."""
     def __init__(self,
                  noise_prior,
                  num_samples: int,
@@ -26,4 +26,11 @@ class FrobeniousDistanceBuilder(DistanceBuilder):
 
 
 def frobenious_distance(a, b, num_points: int):
+    """Average squared frobenious distance between A vs B.
+
+    :param a:
+    :param b:
+    :param num_points:
+    :return:
+    """
     pass

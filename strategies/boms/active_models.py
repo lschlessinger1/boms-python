@@ -2,6 +2,7 @@ from model_spaces.core.gp_model import GPModel
 
 
 class ActiveModels:
+    """ActiveModels manages the active set of models."""
 
     def __init__(self, max_number_of_models: int):
         pass
