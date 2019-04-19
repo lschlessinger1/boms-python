@@ -1,12 +1,14 @@
 from typing import List
 
+from model_spaces.core.hyperpriors import Hyperpriors
+
 
 class CovarianceGrammar:
 
     def __init__(self,
                  base_kernels_names: List[str],
                  dimension: int,
-                 hyperprior):
+                 hyperprior: Hyperpriors):
         pass
 
     def expand(self, kernel):

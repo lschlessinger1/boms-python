@@ -1,6 +1,7 @@
 from typing import List
 
 from model_spaces.core.covariance_grammar import CovarianceGrammar
+from model_spaces.core.hyperpriors import Hyperpriors
 
 
 class BomsGrammarTraversal(CovarianceGrammar):
@@ -11,7 +12,7 @@ class BomsGrammarTraversal(CovarianceGrammar):
     def __init__(self,
                  base_kernels_names: List[str],
                  dimension: int,
-                 hyperprior):
+                 hyperprior: Hyperpriors):
         super().__init__(base_kernels_names, dimension, hyperprior)
         self.random_walk_geometric_dist_parameter = 1 / 3
         self.number_of_top_k_best = 3

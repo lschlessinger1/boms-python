@@ -1,6 +1,9 @@
+from model_spaces.core.hyperpriors import Hyperpriors
+
+
 class GPModel:
 
-    def __init__(self, covariance, hyperpriors):
+    def __init__(self, covariance, hyperpriors: Hyperpriors):
         pass
 
     def predict(self, x_train, y_train, x_star):

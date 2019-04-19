@@ -1,6 +1,7 @@
 from typing import Callable
 
 from model_spaces.core.gp_model import GPModel
+from model_spaces.core.hyperpriors import Hyperpriors
 from strategies.boms.active_models import ActiveModels
 from strategies.boms.distance_builder import DistanceBuilder
 from strategies.boms.kernel_kernel_gp_model import KernelKernelGPModel
@@ -14,7 +15,7 @@ class BayesianOptimizationStrategy:
                  active_models: ActiveModels,
                  acquisition_function: Callable,
                  kernel_builder: DistanceBuilder,
-                 kernel_kernel_hyperpriors,
+                 kernel_kernel_hyperpriors: Hyperpriors,
                  tracker: SimpleTracker):
         self.active_models = active_models
         self.acquisition_function = acquisition_function
