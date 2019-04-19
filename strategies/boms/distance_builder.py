@@ -1,3 +1,8 @@
+from typing import List
+
+from numpy import ndarray
+
+from model_spaces.core.covariance import Covariance
 from strategies.boms.active_models import ActiveModels
 
 
@@ -10,22 +15,22 @@ class DistanceBuilder:
                  max_num_hyperparameters: int,
                  max_num_kernels: int,
                  active_models: ActiveModels,
-                 initial_model_indices,
-                 data_X):
+                 initial_model_indices: List[int],
+                 data_X: ndarray):
         pass
 
     def precompute_information(self,
                                active_models: ActiveModels,
-                               new_candidates_indices,
+                               new_candidates_indices: List[int],
                                data_X) -> None:
         pass
 
     def update(self,
                active_models: ActiveModels,
-               new_candidates_indices,
-               all_candidates_indices,
-               selected_indices,
-               data_X) -> None:
+               new_candidates_indices: List[int],
+               all_candidates_indices: List[int],
+               selected_indices: List[int],
+               data_X: ndarray) -> None:
         """Update average distance between models.
 
         :param active_models:
@@ -39,12 +44,14 @@ class DistanceBuilder:
 
     def compute_distance(self,
                          active_models: ActiveModels,
-                         indices_i,
-                         indices_j) -> None:
+                         indices_i: List[int],
+                         indices_j: List[int]) -> None:
         raise NotImplementedError
 
-    def create_precomputed_info(self, covariance, data_X):
+    def create_precomputed_info(self,
+                                covariance: Covariance,
+                                data_X: ndarray):
         raise NotImplementedError
 
-    def get_kernel(self, index: int):
+    def get_kernel(self, index: int) -> ndarray:
         pass

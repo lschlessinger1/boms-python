@@ -1,6 +1,8 @@
 from typing import List
 
+from model_spaces.core.covariance import Covariance
 from model_spaces.core.covariance_grammar import CovarianceGrammar
+from model_spaces.core.gp_model import GPModel
 from model_spaces.core.hyperpriors import Hyperpriors
 
 
@@ -18,11 +20,11 @@ class BomsGrammarTraversal(CovarianceGrammar):
         self.number_of_top_k_best = 3
         self.number_of_random_walks = 15
 
-    def get_candidates(self, selected_models, fitness_score):
+    def get_candidates(self, selected_models: GPModel, fitness_score: float) -> List[Covariance]:
         pass
 
-    def expand_random(self, total_num_walks: int):
+    def expand_random(self, total_num_walks: int) -> List[Covariance]:
         pass
 
-    def expand_best(self, selected_models, fitness_score):
+    def expand_best(self, selected_models: GPModel, fitness_score: float) -> List[Covariance]:
         pass

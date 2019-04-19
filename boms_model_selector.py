@@ -9,7 +9,7 @@ class BomsModelSelector(ModelSelector):
 
     def __init__(self,
                  problem,
-                 fitness_function: Callable,
+                 fitness_function: Callable[..., float],
                  callback: Callable):
         BomsModelSelector.default_parameters(problem)
         model_space = BomsGrammarTraversal()

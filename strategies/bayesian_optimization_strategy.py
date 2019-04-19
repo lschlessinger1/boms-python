@@ -1,5 +1,6 @@
-from typing import Callable
+from typing import Callable, List
 
+from model_spaces.core.covariance import Covariance
 from model_spaces.core.gp_model import GPModel
 from model_spaces.core.hyperpriors import Hyperpriors
 from strategies.boms.active_models import ActiveModels
@@ -23,5 +24,8 @@ class BayesianOptimizationStrategy:
         self.model = KernelKernelGPModel(kernel_kernel_hyperpriors)
         self.tracker = tracker
 
-    def query(self, problem, selected_models, fitness_scores, candidate_models):
+    def query(self, problem,
+              selected_models: List[GPModel],
+              fitness_scores: List[float],
+              candidate_models: List[Covariance]):
         pass

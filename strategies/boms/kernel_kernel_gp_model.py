@@ -1,3 +1,5 @@
+from numpy import ndarray
+
 from model_spaces.core.gp_model import GPModel
 from model_spaces.core.hyperpriors import Hyperpriors
 
@@ -8,5 +10,5 @@ class KernelKernelGPModel(GPModel):
         covariance = None
         super().__init__(covariance, kernel_kernel_hyperpriors)
 
-    def set_kernel_kernel(self, k):
+    def set_kernel_kernel(self, k: ndarray):
         pass

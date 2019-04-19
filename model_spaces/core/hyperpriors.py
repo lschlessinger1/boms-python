@@ -25,5 +25,5 @@ class Hyperpriors:
         self.mean_offset_mean = 0
         self.mean_offset_var = 1
 
-    def gaussian_prior(self, hyperparameter_name):
+    def gaussian_prior(self, hyperparameter_name: str):
         pass
