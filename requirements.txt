@@ -1,1 +1,5 @@
 numpy
+scipy
+pytest
+matplotlib
+sobol_seq
