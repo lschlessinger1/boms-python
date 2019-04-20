@@ -24,8 +24,9 @@ class BayesianOptimizationStrategy:
         self.model = KernelKernelGPModel(kernel_kernel_hyperpriors)
         self.tracker = tracker
 
-    def query(self, problem,
+    def query(self,
+              problem,
               selected_models: List[GPModel],
               fitness_scores: List[float],
-              candidate_models: List[Covariance]):
+              candidate_models: List[Covariance]) -> GPModel:
         pass
