@@ -10,7 +10,7 @@ class ActiveModels:
     def __init__(self, max_number_of_models: int):
         pass
 
-    def update(self, candidates: List[Covariance]):
+    def update(self, candidates: List[Covariance]) -> List[int]:
         pass
 
     def add_model(self, covariance: Covariance) -> tuple:
