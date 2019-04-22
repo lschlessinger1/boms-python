@@ -46,6 +46,41 @@ class CovarianceGrammar:
             new_kernels.append(kernel * self.base_kernels[i])
         return new_kernels
 
-    def full_expand(self, level: int,
+    def full_expand(self,
+                    level: int,
                     max_number_of_models: int) -> List[Covariance]:
-        pass
+        # this is a brute-force implementation, use it for level < 4
+        current_kernels = self.base_kernels
+        if level == 0:
+            return current_kernels
+
+        def remove_duplicates(new_kerns, all_kerns):
+            unique_kernels = []
+            for new_kernel in new_kerns:
+                repeated = False
+                for kern in all_kerns:
+                    if new_kernel == kern:
+                        repeated = True
+                        break
+                if not repeated:
+                    unique_kernels.append(new_kernel)
+            return unique_kernels
+
+        all_kernels = []
+
+        while level > 0:
+            this_level = []
+            number_of_models = len(all_kernels)
+            for current_kernel in current_kernels:
+                new_kernels = self.expand(current_kernel)
+                unique_new_kernels = remove_duplicates(new_kernels, this_level)
+                this_level += unique_new_kernels
+                number_of_models = number_of_models + len(unique_new_kernels)
+                if number_of_models > max_number_of_models:
+                    all_kernels += this_level
+                    all_kernels = all_kernels[:max_number_of_models]
+                    return all_kernels
+            current_kernels = this_level
+            all_kernels += this_level
+            level -= 1
+        return all_kernels
