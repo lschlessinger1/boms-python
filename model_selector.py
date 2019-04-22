@@ -4,13 +4,14 @@ from typing import Callable, Tuple, List, DefaultDict, Optional
 
 from model_spaces.core.covariance_grammar import CovarianceGrammar
 from model_spaces.core.gp_model import GPModel
+from problem import BomsProblem
 from strategies.bayesian_optimization_strategy import BayesianOptimizationStrategy
 
 
 class ModelSelector:
 
     def __init__(self,
-                 problem: dict,
+                 problem: BomsProblem,
                  model_space: CovarianceGrammar,
                  fitness_function: Callable[..., float],
                  strategy: BayesianOptimizationStrategy,
@@ -22,8 +23,8 @@ class ModelSelector:
         self.callback = callback
 
     def run(self) -> Tuple[List[GPModel], List[float], DefaultDict[list]]:
-        verbose = 'verbose' in self.problem and self.problem['verbose']
-        self.problem['verbose'] = verbose
+        verbose = self.problem.verbose is not None and self.problem.verbose
+        self.problem.verbose = verbose
 
         # Save the wall-clock time of each operation.
         total_time_model_space = []
@@ -32,7 +33,7 @@ class ModelSelector:
 
         selected_models, fitness_scores = self.initialization()
 
-        for i in range(self.problem['budget']):
+        for i in range(self.problem.budget):
             # Get list of candidate models.
             t_start_model_space = time()
             candidate_models = self.model_space.get_candidates(selected_models, fitness_scores)
